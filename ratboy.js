@@ -144,7 +144,7 @@ app.post(URI, async (req, res) => {
         }
       } else if (command == "/minted") {
         let nfts2Left = await nft2Contract.methods.lastSupply().call();
-        sendMessage(TELEGRAM_API, chatId, `*Rats Minted:* 1000/1000\n*Super Rats Minted:* ${nfts2Left}/500`, messageId);
+        sendMessage(TELEGRAM_API, chatId, `*Rats Minted:* 1000/1000\n*Super Rats Minted:* ${500 - nfts2Left}/500`, messageId);
       } else if (command == "/nft") {
         sendMessage(TELEGRAM_API, chatId, `*Available commands:*\n\n/rat - Looks up Rat NFT by Id\n/superrat - Looks up Super Rat NFT by Id\n /minted - Get number of NFTs minted`, messageId);
       }
